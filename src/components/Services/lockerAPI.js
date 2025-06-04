@@ -2,7 +2,7 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 
 const API_URL =
-  "http://ec2-3-88-237-151.compute-1.amazonaws.com:9090/api/v1/admin";
+  "https://ec2-3-88-237-151.compute-1.amazonaws.com:9090/api/v1/admin";
 
 const api = axios.create({
   baseURL: API_URL,
