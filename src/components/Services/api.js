@@ -50,6 +50,15 @@ export const getPendingUsresData = async () => {
   });
 };
 
+export const getUsresLogData = async () => {
+  return await api.get("/admin/getAllLogs", {
+    headers: {
+      Authorization: `Bearer ${localStorage.getItem("token")?.trim()}`,
+      //"Content-Type": "application/json"
+    },
+  });
+};
+
 export const putLockeUsresData = async (id) => {
   if (!localStorage.getItem("token")) {
     console.error("JWT Token is missing! Check localStorage.");

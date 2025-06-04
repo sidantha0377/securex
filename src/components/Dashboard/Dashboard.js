@@ -5,13 +5,18 @@ import Navbar from "../Navigationbar/Navigationbar.js";
 import "./Dashboard.css"; // Import a CSS file for layout styling
 import TabBlack from "../Tabs/Black/TabBlack.js";
 import TabWhite from "../Tabs/White/TabWhite.js";
-import { getLockerUsresData, getPendingUsresData } from "../Services/api.js";
+import {
+  getLockerUsresData,
+  getPendingUsresData,
+  getUsresLogData,
+} from "../Services/api.js";
 import { getLockerData, getLockerClusterData } from "../Services/lockerAPI.js";
 
 const Dashboard = () => {
   const [users, setUsers] = useState([]);
   const [admins, setAdmin] = useState([]);
   const [pusers, setPUsers] = useState([]);
+  const [logs, setLog] = useState([]);
   // Fetch locker users
   const handleLockerUsers = async () => {
     console.log("Fetching all user data");
@@ -39,6 +44,21 @@ const Dashboard = () => {
       }
     } catch (error) {
       console.error("Error fetching users:", error);
+      alert(`Invalid Request: Token ${localStorage.getItem("token")}`);
+    }
+  };
+
+  const fetchUsersLogs = async () => {
+    try {
+      const response = await getUsresLogData();
+      const data = response.data;
+      console.log(data);
+      setLog(data);
+      if (!data || data.length === 0) {
+        //alert("No pending users");
+      }
+    } catch (error) {
+      console.error("Error fetching log:", error);
       alert(`Invalid Request: Token ${localStorage.getItem("token")}`);
     }
   };
@@ -72,6 +92,7 @@ const Dashboard = () => {
     handleLockerUsers();
     handleLocker();
     fetchPendingUsers();
+    fetchUsersLogs();
   }, []);
   return (
     <div className="dashboard-container">
@@ -102,7 +123,30 @@ const Dashboard = () => {
             <TabWhite text={"Securety alearts"} number={"--"} />
           </div>
           <h2> Recent Activity: </h2>
-          <div className="TablistH"></div>
+          <div className="TablistH">
+            <table>
+              <thead>
+                <tr>
+                  <th>Log ID</th>
+                  <th>Locker ID</th>
+                  <th>Access Time</th>
+                  <th>Released Time</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                {logs.map((entry) => (
+                  <tr key={entry.logId}>
+                    <td>{entry.logId}</td>
+                    <td>{entry.lockerId}</td>
+                    <td>{new Date(entry.accessTime).toLocaleString()}</td>
+                    <td>{new Date(entry.releasedTime).toLocaleString()}</td>
+                    <td>{entry.status}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
     </div>
