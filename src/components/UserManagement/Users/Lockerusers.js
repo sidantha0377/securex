@@ -304,19 +304,19 @@ const LockerUsers = () => {
                 value={selectedUser?.email || ""}
                 onChange={handleEditChange}
               />
-              <FormControl>
-                <InputLabel>Role</InputLabel>
-                <Select
-                  name="role"
-                  value={selectedUser?.role || ""}
-                  onChange={handleEditChange}
-                  label="Role"
-                >
-                  <MenuItem value="USER">USER</MenuItem>
-                  <MenuItem value="ADMIN">ADMIN</MenuItem>
-                  <MenuItem value="MANAGER">MANAGER</MenuItem>
-                </Select>
-              </FormControl>
+              {/* <FormControl>
+      <InputLabel>Role</InputLabel>
+      <Select
+        name="role"
+        value={selectedUser?.role || ""}
+        onChange={handleEditChange}
+        label="Role"
+      >
+        <MenuItem value="USER">USER</MenuItem>
+        <MenuItem value="ADMIN">ADMIN</MenuItem>
+        <MenuItem value="MANAGER">MANAGER</MenuItem>
+      </Select>
+    </FormControl> */}
             </DialogContent>
 
             <DialogActions className="dialog-actions">
