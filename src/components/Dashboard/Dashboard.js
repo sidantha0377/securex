@@ -116,12 +116,12 @@ const Dashboard = () => {
             </Link>
           </div>
 
-          <h2>Alerts:</h2>
+          {/* <h2>Alerts:</h2>
           <div className="Tablist">
             <TabWhite text={"Issus"} number={"--"} />
             <TabWhite text={"Attention need"} number={"--"} />
             <TabWhite text={"Securety alearts"} number={"--"} />
-          </div>
+          </div> */}
           <h2> Recent Activity: </h2>
           <div className="TablistH">
             <table>
