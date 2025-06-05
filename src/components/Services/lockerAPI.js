@@ -122,7 +122,7 @@ export const unlockeLocker = async (id) => {
     <Link to="/home"></Link>;
     return;
   }
-  return await api.delete(`/unlockLocker/${id}`, {
+  return await api.post(`/unlockLocker/${id}`, {
     headers: {
       Authorization: `Bearer ${localStorage.getItem("token")?.trim()}`,
     },
