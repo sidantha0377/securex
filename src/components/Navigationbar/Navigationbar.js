@@ -5,50 +5,63 @@ import {
   UserCog,
   Binoculars,
   MapPinned,
-  ChartColumn,
+  CircleUser,
   ShieldUser,
   LogOut,
 } from "lucide-react";
 import "./Navigationbar.css";
-// <li><Link to="/lockerconfig">Locker Configuration</Link></li>
+
 const Navbar = () => {
   return (
     <nav className="navbar">
       <div className="logo">Secure X</div>
+
+      {/* Main navigation links */}
       <ul className="nav-links">
         <li>
-          {" "}
           <Link to="/dashboard">
-            <LayoutDashboard /> Dashboard
+            <LayoutDashboard />
+            Dashboard
           </Link>
         </li>
         <li>
-          {" "}
           <Link to="/usermanage">
-            <UserCog /> User Management
+            <UserCog />
+            User Management
           </Link>
         </li>
         <li>
-          {" "}
           <Link to="/lockermonitoring">
-            <Binoculars /> Locker Monitoring
+            <Binoculars />
+            Locker Monitoring
           </Link>
         </li>
-
         <li>
           <Link to="/map">
-            <MapPinned /> Map
+            <MapPinned />
+            Map
           </Link>
         </li>
-        {/* <li><Link to="/randa"><ChartColumn />  Reports & Analytics</Link></li> */}
         <li>
           <Link to="/adminmanage">
-            <ShieldUser /> Admin Management
+            <ShieldUser />
+            Admin Management
           </Link>
         </li>
-        <li style={{ backgroundColor: "red", color: "white" }}>
-          <Link to="/home">
-            <LogOut /> Log Out
+      </ul>
+
+      {/* User section at bottom */}
+      <ul className="user-section">
+        <li>
+          <Link to="/usercontrol">
+            <CircleUser />
+            User Profile
+          </Link>
+        </li>
+        <li>
+          <Link to="/home" className="logout-link">
+            <LogOut />
+            Log Out
           </Link>
         </li>
       </ul>

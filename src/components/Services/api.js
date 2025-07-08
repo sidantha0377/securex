@@ -1,7 +1,7 @@
 import axios from "axios";
 import { Link } from "react-router-dom";
-const API_URL =
-  "https://smartlocker-backend-bkf3bydrfbfjf4g8.southindia-01.azurewebsites.net/api/v1"; //"https://ec2-3-88-237-151.compute-1.amazonaws.com:9090/api/v1";
+const API_URL = "http://localhost:9090/api/v1";
+//"https://smartlocker-backend-bkf3bydrfbfjf4g8.southindia-01.azurewebsites.net/api/v1"; //"https://ec2-3-88-237-151.compute-1.amazonaws.com:9090/api/v1";
 //"http://smartlocker-backend-bkf3bydrfbfjf4g8.southindia-01.azurewebsites.net/api/v1";
 
 const api = axios.create({
@@ -35,6 +35,14 @@ export const signup = async (
 
 export const getProtectedData = async () => {
   return api.get("/protected", {
+    headers: {
+      Authorization: `Bearer ${localStorage.getItem("token")?.trim()}`,
+    },
+  });
+};
+
+export const getUserProfile = async () => {
+  return api.get("/user/profile", {
     headers: {
       Authorization: `Bearer ${localStorage.getItem("token")?.trim()}`,
     },

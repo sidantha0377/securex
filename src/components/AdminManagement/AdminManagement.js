@@ -3,20 +3,23 @@ import { getLockerUsresData } from "../Services/api";
 import Navbar from "../Navigationbar/Navigationbar";
 import "./AdminManagement.css";
 
-import ShowUserData from '../Tabs/Width/WidthFullUserData.js';
+import ShowUserData from "../Tabs/Width/WidthFullUserData.js";
 import Adminusre from "./AdminUsre/Adminusre.js";
 
 const AdminManagement = () => {
   const [admins, setAdmin] = useState([]);
   const [adminU, setAdminU] = useState({}); // Default to empty object
 
-  const handleLockerAdmin = async () => {  // No event parameter (e)
+  const handleLockerAdmin = async () => {
+    // No event parameter (e)
     try {
       const response = await getLockerUsresData();
       const adminUsers = response.data.filter((user) => user.role === "ADMIN");
       setAdmin(adminUsers);
 
-      const currentUser = response.data.find((user) => String(user.id) === localStorage.getItem("User"));
+      const currentUser = response.data.find(
+        (user) => String(user.id) === localStorage.getItem("User")
+      );
       setAdminU(currentUser || {}); // Store object or empty if not found
     } catch (error) {
       console.error("Error fetching users:", error);
