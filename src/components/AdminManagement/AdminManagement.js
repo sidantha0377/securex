@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { getLockerUsresData } from "../Services/api";
+import { useNavigate } from "react-router-dom";
 import Navbar from "../Navigationbar/Navigationbar";
 import "./AdminManagement.css";
 
@@ -30,14 +31,41 @@ const AdminManagement = () => {
   useEffect(() => {
     handleLockerAdmin(); // Fetch admin data on component mount
   }, []);
+  const navigate = useNavigate();
 
   return (
     <div>
       <Navbar />
       <div className="Am1">
-        <h1>Admin Management Page</h1>
+        <h1>Admin Management </h1>
 
-        {adminU.id && ( // Only render if adminU has a valid ID
+        <div className="admin-profile-container">
+          {adminU.id && (
+            <>
+              <h2 className="admin-profile-title">Admin Profile</h2>
+              <p>
+                <strong>ID:</strong> {adminU.id}
+              </p>
+              <p>
+                <strong>Name:</strong> {adminU.firstName} {adminU.lastName}
+              </p>
+              <p>
+                <strong>Email:</strong> {adminU.email}
+              </p>
+              <p>
+                <strong>Contact No:</strong> {adminU.contactNumber}
+              </p>
+              <p>
+                <strong>Role:</strong> {adminU.role}
+              </p>
+            </>
+          )}
+          <button className="" onClick={() => navigate("/usercontrol")}>
+            edit
+          </button>
+        </div>
+
+        {/* {adminU.id && ( // Only render if adminU has a valid ID
           <ShowUserData
             firstname={adminU.firstName}
             lastname={adminU.lastName}
@@ -46,11 +74,9 @@ const AdminManagement = () => {
             contacNo={adminU.contactNumber}
             role={adminU.role}
           />
-        )}
+        )} */}
 
-        <div className="Current_admin">
-          <Adminusre user={admins} />
-        </div>
+        <Adminusre user={admins} />
       </div>
     </div>
   );
