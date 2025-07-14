@@ -19,31 +19,31 @@ const Navbar = () => {
       {/* Main navigation links */}
       <ul className="nav-links">
         <li>
-          <Link to="/dashboard">
+          <Link to="/dashboard" className="normal-link">
             <LayoutDashboard />
             Dashboard
           </Link>
         </li>
         <li>
-          <Link to="/usermanage">
+          <Link to="/usermanage" className="normal-link">
             <UserCog />
             User Management
           </Link>
         </li>
         <li>
-          <Link to="/lockermonitoring">
+          <Link to="/lockermonitoring" className="normal-link">
             <Binoculars />
             Locker Monitoring
           </Link>
         </li>
         <li>
-          <Link to="/map">
+          <Link to="/map" className="normal-link">
             <MapPinned />
             Map
           </Link>
         </li>
         <li>
-          <Link to="/adminmanage">
+          <Link to="/adminmanage" className="normal-link">
             <ShieldUser />
             Admin Management
           </Link>
@@ -53,7 +53,7 @@ const Navbar = () => {
       {/* User section at bottom */}
       <ul className="user-section">
         <li>
-          <Link to="/usercontrol">
+          <Link to="/usercontrol" className="normal-link">
             <CircleUser />
             User Profile
           </Link>
