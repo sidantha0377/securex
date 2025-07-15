@@ -2,7 +2,7 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 const API_URL =
   "https://smartlocker-backend-bkf3bydrfbfjf4g8.southindia-01.azurewebsites.net/api/v1"; //"https://ec2-3-88-237-151.compute-1.amazonaws.com:9090/api/v1";
-//"http://smartlocker-backend-bkf3bydrfbfjf4g8.southindia-01.azurewebsites.net/api/v1";"http://localhost:9090/api/v1";
+//"http://smartlocker-backend-bkf3bydrfbfjf4g8.southindia-01.azurewebsites.net/api/v1";"http://localhost:9090/api/v1";"http://localhost:9090/api/v1";
 
 const api = axios.create({
   baseURL: API_URL,
@@ -158,6 +158,44 @@ export const changePassword = async (passwordData) => {
   return await api.post("/admin/change-password", passwordData, {
     headers: {
       Authorization: `Bearer ${localStorage.getItem("token")?.trim()}`,
+    },
+  });
+};
+
+export const updateDP = async (username, formData) => {
+  return await api.post(`/admin/image/upload/${username}`, formData, {
+    headers: {
+      Authorization: `Bearer ${localStorage.getItem("token")?.trim()}`,
+      "Content-Type": "multipart/form-data",
+    },
+  });
+};
+
+export const dounlodDP = async (id) => {
+  return await api.get(`/admin/image/download/${id}`, {
+    headers: {
+      Authorization: `Bearer ${localStorage.getItem("token")?.trim()}`,
+    },
+  });
+};
+export const deleteDP = async (id) => {
+  return await api.delete(`/admin/image/delete/${id}`, {
+    headers: {
+      Authorization: `Bearer ${localStorage.getItem("token")?.trim()}`,
+    },
+  });
+};
+
+export const updateLockeradmin = async (data) => {
+  if (!localStorage.getItem("token")) {
+    console.error("JWT Token is missing! Check localStorage.sesion expire ");
+    <Link to="/home"></Link>;
+    return;
+  }
+  return await api.patch(`/admin/editProfile`, data, {
+    headers: {
+      Authorization: `Bearer ${localStorage.getItem("token")?.trim()}`,
+      //"Content-Type": "application/json"
     },
   });
 };

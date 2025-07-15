@@ -1,0 +1,359 @@
+/* User Profile Component Styles */
+/* 
+.UCP {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); 
+  min-height: 100vh;
+} */
+
+.UCP{
+    flex-grow: 1;
+    padding-left: 20%;
+    padding-top: 2%;
+    /* background: hsl(0, 0%, 100%); */
+    color: #000;
+    min-height: 100vh; /* Ensures full-page height */
+    display: flex;
+    flex-direction: column;
+    align-items:flex-start;
+}
+
+/* .UCP h2 {
+  text-align: center;
+  color: #ffffff;
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+} */
+
+.delailpalet {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 2rem;
+  background: linear-gradient(135deg, #ffffff 0%, #686868 100%); 
+  border-radius: 20px;
+  padding: 2rem;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+}
+
+/* Profile Picture Section */
+.user-details:first-child {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.profile-picture {
+  position: relative;
+  margin-bottom: 1.5rem;
+}
+
+.avatar {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid #667eea;
+  box-shadow: 0 8px 32px rgba(102, 126, 234, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.avatar:hover {
+  transform: scale(1.05);
+  box-shadow: 0 12px 48px rgba(102, 126, 234, 0.4);
+}
+
+/* User Details Section */
+.user-details:last-child {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.user-details p {
+  margin: 0.75rem 0;
+  font-size: 1.1rem;
+  color: #2c3e50;
+  border-bottom: 1px solid #ecf0f1;
+  padding-bottom: 0.5rem;
+}
+
+.user-details p strong {
+  color: #667eea;
+  font-weight: 600;
+  display: inline-block;
+  min-width: 120px;
+}
+
+/* Action Buttons */
+.action-buttons {
+  display: flex;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+/* Button Styles */
+/* .EDITB, .UNLOCKB, .DELETB {
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.EDITB {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+}
+
+.EDITB:hover {
+  background: linear-gradient(135deg, #5a67d8 0%, #6b46c1 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+}
+
+.UNLOCKB {
+  background: linear-gradient(135deg, #48bb78 0%, #38a169 100%);
+  color: white;
+}
+
+.UNLOCKB:hover {
+  background: linear-gradient(135deg, #38a169 0%, #2f855a 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(72, 187, 120, 0.4);
+}
+
+.DELETB {
+  background: linear-gradient(135deg, #f56565 0%, #e53e3e 100%);
+  color: white;
+}
+
+.DELETB:hover {
+  background: linear-gradient(135deg, #e53e3e 0%, #c53030 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(245, 101, 101, 0.4);
+} */
+
+/* Dialog Customizations */
+.MuiDialog-paper {
+  border-radius: 20px !important;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15) !important;
+}
+
+.MuiDialogTitle-root {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+  color: white !important;
+  text-align: center !important;
+  font-weight: 700 !important;
+  padding: 1.5rem !important;
+}
+
+.MuiDialogContent-root {
+  padding: 2rem !important;
+  background: #f8fafc !important;
+}
+
+.MuiDialogActions-root {
+  padding: 1.5rem !important;
+  background: #f8fafc !important;
+  justify-content: center !important;
+  gap: 1rem !important;
+}
+
+.MuiTextField-root {
+  margin-bottom: 1rem !important;
+}
+
+.MuiTextField-root .MuiOutlinedInput-root {
+  border-radius: 12px !important;
+  background: white !important;
+}
+
+.MuiTextField-root .MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline {
+  border-color: #667eea !important;
+}
+
+.MuiTextField-root .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline {
+  border-color: #667eea !important;
+}
+
+.MuiTextField-root .MuiInputLabel-root.Mui-focused {
+  color: #667eea !important;
+}
+
+/* File Input Styling */
+input[type="file"] {
+  width: 100%;
+  padding: 1rem;
+  border: 2px dashed #667eea;
+  border-radius: 12px;
+  background: white;
+  color: #667eea;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+input[type="file"]:hover {
+  border-color: #5a67d8;
+  background: #f7fafc;
+}
+
+/* Preview Image */
+.preview-image {
+  margin-top: 1rem;
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 3px solid #667eea;
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .UCP {
+    padding: 1rem;
+  }
+  
+  .delailpalet {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    padding: 1.5rem;
+  }
+  
+  .UCP h2 {
+    font-size: 2rem;
+  }
+  
+  .avatar {
+    width: 120px;
+    height: 120px;
+  }
+  
+  .action-buttons {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  
+  .EDITB, .UNLOCKB, .DELETB {
+    width: 100%;
+    justify-content: center;
+  }
+  
+  .user-details p {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .UCP {
+    padding: 0.5rem;
+  }
+  
+  .delailpalet {
+    padding: 1rem;
+  }
+  
+  .UCP h2 {
+    font-size: 1.5rem;
+  }
+  
+  .user-details p strong {
+    min-width: 100px;
+    font-size: 0.9rem;
+  }
+  
+  .MuiDialogContent-root {
+    padding: 1rem !important;
+  }
+  
+  .MuiDialogActions-root {
+    padding: 1rem !important;
+  }
+}
+
+/* Loading States */
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 200px;
+  color: #667eea;
+  font-size: 1.2rem;
+}
+
+/* Error States */
+.error {
+  background: #fed7d7;
+  color: #c53030;
+  padding: 1rem;
+  border-radius: 12px;
+  margin: 1rem 0;
+  text-align: center;
+}
+
+/* Success States */
+.success {
+  background: #c6f6d5;
+  color: #2f855a;
+  padding: 1rem;
+  border-radius: 12px;
+  margin: 1rem 0;
+  text-align: center;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.delailpalet {
+  animation: fadeIn 0.5s ease-out;
+}
+
+/* Smooth transitions for all interactive elements */
+* {
+  transition: all 0.3s ease;
+}
+
+/* Custom scrollbar for dialog content */
+.MuiDialogContent-root::-webkit-scrollbar {
+  width: 8px;
+}
+
+.MuiDialogContent-root::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+
+.MuiDialogContent-root::-webkit-scrollbar-thumb {
+  background: #667eea;
+  border-radius: 10px;
+}
+
+.MuiDialogContent-root::-webkit-scrollbar-thumb:hover {
+  background: #5a67d8;
+}

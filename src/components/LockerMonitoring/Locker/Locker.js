@@ -171,6 +171,7 @@ const Locker = () => {
       handleLocker();
     } catch (error) {
       alert("Unlock failed: " + (error.response?.data || "Try again"));
+      setUnlockPassword("");
     }
   };
 
