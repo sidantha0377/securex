@@ -135,7 +135,9 @@ const Dashboard = () => {
                 </tr>
               </thead>
               <tbody>
-                {logs.map((entry) => (
+                {logs.sort(
+                    (a, b) => new Date(b.accessTime) - new Date(a.accessTime)
+                  ).map((entry) => (
                   <tr key={entry.logId}>
                     <td>{entry.logId}</td>
                     <td>{entry.lockerId}</td>
