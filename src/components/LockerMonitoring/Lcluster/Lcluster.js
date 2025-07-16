@@ -46,7 +46,7 @@ const Lcluster = () => {
       console.log("Cluster Data:", lockerClusters);
     } catch (error) {
       console.error("Error fetching data:", error);
-      alert(`Invalid Request: Token ${localStorage.getItem("token")}`);
+      alert(`Invalid Request`);
     }
   };
   // add locker cluster
@@ -58,7 +58,7 @@ const Lcluster = () => {
       handleLockerCluster();
     } catch (error) {
       console.error("Error fetching data:", error);
-      alert(`Invalid Request: Token ${localStorage.getItem("token")}`);
+      alert(`Invalid Request`);
     }
   };
 

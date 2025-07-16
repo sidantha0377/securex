@@ -56,7 +56,7 @@ const Locker = () => {
       setAllLocker(lockerData);
     } catch (error) {
       setLocker([]);
-      alert(`Invalid Request: Token ${localStorage.getItem("token")}`);
+      alert(`Invalid Request`);
     }
   };
 
@@ -67,7 +67,7 @@ const Locker = () => {
       const response = await getLockerClusterData();
       setClusters(response.data);
     } catch (error) {
-      alert(`Invalid Request: Token ${localStorage.getItem("token")}`);
+      alert(`Invalid Request`);
     } finally {
       setLoading(false);
     }
@@ -80,7 +80,7 @@ const Locker = () => {
       setOpenAdd(false);
       handleLocker();
     } catch (error) {
-      alert(`Invalid Request: Token ${localStorage.getItem("token")}`);
+      alert(`Invalid Request`);
     }
   };
 

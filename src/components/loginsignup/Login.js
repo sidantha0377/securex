@@ -15,7 +15,7 @@ const Login = () => {
       const token = response.data.token?.trim(); // Access the token field and trim spaces
       if (token) {
         localStorage.setItem("token", token);
-        alert(`Login success: Token ${token}`);
+        alert(`Login success`);
       } else {
         alert("Login failed: Token not found");
       }

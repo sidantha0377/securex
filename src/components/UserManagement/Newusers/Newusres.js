@@ -32,7 +32,7 @@ const Newusers = () => {
       }
     } catch (error) {
       console.error("Error fetching users:", error);
-      alert(`Invalid Request: Token ${localStorage.getItem("token")}`);
+      alert(`Invalid Request`);
     }
   };
 

@@ -30,7 +30,7 @@ const Dashboard = () => {
       console.log(response);
     } catch (error) {
       console.error("Error fetching users:", error);
-      alert(`Invalid Request: Token ${localStorage.getItem("token")}`);
+      alert(`Invalid Request`);
     }
   };
 
@@ -44,7 +44,7 @@ const Dashboard = () => {
       }
     } catch (error) {
       console.error("Error fetching users:", error);
-      alert(`Invalid Request: Token ${localStorage.getItem("token")}`);
+      // alert(`Invalid Request`);
     }
   };
 
@@ -59,7 +59,7 @@ const Dashboard = () => {
       }
     } catch (error) {
       console.error("Error fetching log:", error);
-      alert(`Invalid Request: Token ${localStorage.getItem("token")}`);
+      // alert(`Invalid Request`);
     }
   };
 
@@ -78,7 +78,7 @@ const Dashboard = () => {
       console.log("Locker Data:", locker);
     } catch (error) {
       console.error("Error fetching data:", error);
-      alert(`Invalid Request: Token ${localStorage.getItem("token")}`);
+      // alert(`Invalid Request: Token ${localStorage.getItem("token")}`);
     }
   };
 
