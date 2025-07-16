@@ -7,6 +7,7 @@ import {
   updateDP,
   dounlodDP,
   deleteDP,
+  ChangePassword,
 } from "../Services/api";
 import {
   Dialog,
@@ -16,7 +17,7 @@ import {
   TextField,
 } from "@mui/material";
 import { Save, KeyRound, X } from "lucide-react";
-import "./User2.css";
+import "./User.css";
 
 export default function User() {
   const [userD, setUserD] = useState({});
@@ -73,8 +74,9 @@ export default function User() {
       setOpenEdit(false);
       handleUserData();
     } catch (error) {
-      alert("Failed to update user profile.");
-      console.error(error);
+      console.error("Full error object:", error);
+      console.error("Response data:", error.response?.data);
+      console.error("Response status:", error.response?.status);
     }
   };
 
@@ -91,11 +93,16 @@ export default function User() {
 
   const handlePasswordSave = async () => {
     try {
-      await changePassword(userD.id, passwordData);
+      await ChangePassword(
+        passwordData.currentPassword,
+        passwordData.newPassword
+      );
       setOpenPassword(false);
       alert("Password changed successfully");
     } catch (error) {
-      alert("Password change failed");
+      alert(
+        "Password change failed: " + (error.response?.data || error.message)
+      );
       console.error(error);
     }
   };
@@ -207,9 +214,13 @@ export default function User() {
         {/* Action Buttons */}
 
         {/* === Edit Profile Dialog === */}
-        <Dialog open={openEdit} onClose={() => setOpenEdit(false)}>
-          <DialogTitle>Edit Profile</DialogTitle>
-          <DialogContent>
+        <Dialog
+          className="dialogbox"
+          open={openEdit}
+          onClose={() => setOpenEdit(false)}
+        >
+          <DialogTitle className="DTital">Edit Profile</DialogTitle>
+          <DialogContent className="dialog-content">
             <TextField
               label="First Name"
               name="firstName"
@@ -254,13 +265,19 @@ export default function User() {
         </Dialog>
 
         {/* === Change Password Dialog === */}
-        <Dialog open={openPassword} onClose={() => setOpenPassword(false)}>
-          <DialogTitle>Change Password</DialogTitle>
-          <DialogContent>
+        <Dialog
+          className="dialogbox"
+          open={openPassword}
+          onClose={() => setOpenPassword(false)}
+        >
+          <DialogTitle className="DTital">Change Password</DialogTitle>
+          <div className="trance"></div>
+          <DialogContent className="dialog-content">
             <TextField
               label="Current Password"
               name="currentPassword"
               type="password"
+              className="no-border"
               value={passwordData.currentPassword}
               onChange={handlePasswordChange}
               fullWidth
@@ -270,6 +287,7 @@ export default function User() {
               label="New Password"
               name="newPassword"
               type="password"
+              className="no-border"
               value={passwordData.newPassword}
               onChange={handlePasswordChange}
               fullWidth
@@ -287,9 +305,14 @@ export default function User() {
         </Dialog>
 
         {/* === Edit Profile Picture Dialog === */}
-        <Dialog open={openPicDialog} onClose={() => setOpenPicDialog(false)}>
-          <DialogTitle>Edit Profile Picture</DialogTitle>
-          <DialogContent>
+        <Dialog
+          className="dialogbox"
+          open={openPicDialog}
+          onClose={() => setOpenPicDialog(false)}
+        >
+          <DialogTitle className="DTital">Edit Profile Picture</DialogTitle>
+          <div className="trance"></div>
+          <DialogContent className="dialog-content">
             <input type="file" accept="image/*" onChange={handleImageSelect} />
             {previewImg && (
               <img
